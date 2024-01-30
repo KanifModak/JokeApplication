@@ -30,11 +30,11 @@ class JokeFragment : Fragment() {
         binding = FragmentJokeBinding.inflate(inflater, container, false)
         setUpViewModel()
         viewModel.apply {
-            getJokeAPIErrorLiveData().observe(viewLifecycleOwner) {
+            errorMessageLiveData.observe(viewLifecycleOwner) {
                 binding?.loader?.visibility = View.GONE
                 Toast.makeText(activity, "API fail:$it", Toast.LENGTH_LONG).show()
             }
-            getJokeLiveData().observe(viewLifecycleOwner) { jokeList ->
+            jokeLiveData.observe(viewLifecycleOwner) { jokeList ->
                 jokeList?.let {
                     binding?.loader?.visibility = View.GONE
                     setupJokeList(it)

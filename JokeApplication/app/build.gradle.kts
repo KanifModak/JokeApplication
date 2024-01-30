@@ -50,6 +50,12 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            merges += "META-INF/LICENSE.md"
+            merges += "META-INF/LICENSE-notice.md"
+            excludes += "recyclerview-v7"
+        }
+        jniLibs {
+            useLegacyPackaging = true
         }
     }
 }
@@ -78,10 +84,27 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
-   // implementation("androidx.navigation:navigation-safe-args-gradle-plugin:2.6.0")
+    implementation("androidx.test.espresso:espresso-contrib:3.5.1")
+    // implementation("androidx.navigation:navigation-safe-args-gradle-plugin:2.6.0")
+
+    testImplementation ("io.mockk:mockk-android:1.13.9")
+    testImplementation ("io.mockk:mockk-agent:1.13.9")
+    androidTestImplementation ("io.mockk:mockk-android:1.13.9")
+    androidTestImplementation ("io.mockk:mockk-agent:1.13.9")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    testImplementation ("androidx.arch.core:core-testing:2.2.0")
+    testImplementation ("com.squareup.okhttp3:mockwebserver:4.10.0")
+
 
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    debugImplementation("androidx.test.ext:junit:1.1.5")
+    debugImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    debugImplementation ("androidx.fragment:fragment-testing:1.1.0-alpha03")
+    debugImplementation("androidx.test:core:1.2.0")
+    debugImplementation("androidx.test:rules:1.2.0")
+    debugImplementation("androidx.test:runner:1.2.0")
+//    androidTestImplementation ("androidx.test.ext:junit:1.1.2")
+//    androidTestImplementation ("androidx.test:runner:1.3.0")
+//    androidTestImplementation ("androidx.test:rules:1.3.0")
 
 }

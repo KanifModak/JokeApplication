@@ -2,13 +2,10 @@ package com.hsbc.jokeapplication.view.adapters
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import com.hsbc.jokeapplication.databinding.FragmentJokeBinding
 import com.hsbc.jokeapplication.databinding.JokeItemBinding
 import com.hsbc.jokeapplication.model.Joke
-import com.hsbc.jokeapplication.view.placeholder.PlaceholderContent.PlaceholderItem
+
 
 
 class JokeRecyclerViewAdapter(
