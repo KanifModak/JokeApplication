@@ -1,6 +1,7 @@
 package com.hsbc.jokeapplication
 
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.hsbc.jokeapplication.data.api.JokeRepository
 import com.hsbc.jokeapplication.data.viewmodels.JokeViewModel
 import com.hsbc.jokeapplication.model.Joke
@@ -18,6 +19,7 @@ import okhttp3.ResponseBody
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -26,7 +28,8 @@ class JokeViewModelTest {
     private val repository: JokeRepository = mockk()
     private lateinit var viewModel: JokeViewModel
     private val dispatcher: TestDispatcher = UnconfinedTestDispatcher()
-
+    @get:Rule
+    val rule = InstantTaskExecutorRule()
     @Before
     fun setup() {
         MockKAnnotations.init(this)
@@ -50,7 +53,7 @@ class JokeViewModelTest {
         coVerify {
             repository.getJokes(5)
         }
-        Assert.assertEquals(400, actualResponse.code())
+        Assert.assertEquals(viewModel.errorMessageLiveData.value?.toInt(), 400)
 
     }
 
@@ -72,7 +75,8 @@ class JokeViewModelTest {
         coVerify {
             repository.getJokes(5)
         }
-        Assert.assertEquals(actualResponse.body(), jokesList)
+        Assert.assertEquals(viewModel.jokeLiveData.value, jokesList)
+        Assert.assertEquals(viewModel.jokeLiveData.value?.get(0)?.jokeMsg, "Dummy joke 1")
     }
 
 
