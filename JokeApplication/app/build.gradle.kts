@@ -85,6 +85,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
     implementation("androidx.test.espresso:espresso-contrib:3.5.1")
+    implementation("androidx.navigation:navigation-testing:2.6.0")
     // implementation("androidx.navigation:navigation-safe-args-gradle-plugin:2.6.0")
 
     testImplementation ("io.mockk:mockk-android:1.13.9")

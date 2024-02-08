@@ -21,6 +21,7 @@ class HomeFragment : Fragment() {
 
         binding?.apply {
             submitButton.setOnClickListener {
+               // view?.announceForAccessibility("Kanif button")
                 val limit = jokeLimitInput.text
                 if (!limit.isNullOrEmpty()) {
                  //   val action = HomeFragmentDirections.actionHomeToJokeFragment()

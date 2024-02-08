@@ -14,6 +14,7 @@
         android:layout_margin="20dp"
         android:hint="Joke Limit"
         android:padding="10dp"
+        android:importantForAccessibility="yes"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:layout_marginTop="10dp"
+        android:importantForAccessibility="yes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/joke_limit_input" />
